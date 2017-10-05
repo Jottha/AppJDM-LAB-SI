@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the AlunosPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+import { FichaPage } from '../ficha/ficha';
+
+import { FirebaseListObservable } from 'angularfire2';
+
+import { Aluno } from './../../models/aluno.models';
+import { AlunoProvider } from './../../providers/aluno/aluno';
 
 @IonicPage()
 @Component({
