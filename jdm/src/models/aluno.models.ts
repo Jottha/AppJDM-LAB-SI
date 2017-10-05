@@ -5,6 +5,7 @@ export class Aluno {
         public matricula: string,
         public serie: string,
         public email: string,
+        public uid: string,
         public senha: string
     ){}
     

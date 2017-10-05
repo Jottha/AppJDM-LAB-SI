@@ -7,19 +7,19 @@ import {AngularFireModule, AuthProviders, AuthMethods } from 'angularFire2';
 import { MyApp } from './app.component';
 
 import { Login2Page } from '../pages/login2/login2';
-import { Alunos} from '../pages/alunos/alunos';
-import { Eventos } from '../pages/eventos/eventos';
-import { Funcionarios } from '../pages/funcionarios/funcionarios';
+import { AlunosPage} from '../pages/alunos/alunos';
+import { EventosPage } from '../pages/eventos/eventos';
+import { FuncionariosPage } from '../pages/funcionarios/funcionarios';
 import { HomePage } from '../pages/home/home';
-import { Imagens } from '../pages/imagens/imagens';
-import { Jdm } from '../pages/jdm/jdm';
-import { Menu } from '../pages/menu/menu';
-import { Noticias } from '../pages/noticias/noticias';
-import { Professores } from '../pages/professores/professores';
+import { ImagensPage } from '../pages/imagens/imagens';
+import { JdmPage } from '../pages/jdm/jdm';
+import { MenuPage } from '../pages/menu/menu';
+import { NoticiasPage } from '../pages/noticias/noticias';
+import { ProfessoresPage } from '../pages/professores/professores';
 
 import { AuthProvider } from './../providers/auth/auth';
 import { HttpModule } from '@angular/http';
-import { UserProvider } from './../providers/user/user';
+
 
 export const firebaseConfig =
 {   apiKey: "AIzaSyDjRP9KOtydhxhSDIJTKfcTVi8rv1YK_c8",
@@ -39,15 +39,15 @@ const firebaseAuthConfig = {
   declarations: [
     MyApp,
     Login2Page,
-    Alunos,
-    Eventos,
-    Funcionarios,
+    AlunosPage,
+    EventosPage,
+    FuncionariosPage,
     HomePage,
-    Imagens,
-    Jdm,
-    Menu,
-    Noticias,
-    Professores
+    ImagensPage,
+    JdmPage,
+    MenuPage,
+    NoticiasPage,
+    ProfessoresPage
     
   ],
   imports: [
@@ -61,15 +61,15 @@ const firebaseAuthConfig = {
     MyApp,
     HomePage,
     Login2Page,
-    Alunos,
-    Eventos,
-    Funcionarios,
+    AlunosPage,
+    EventosPage,
+    FuncionariosPage,
     HomePage,
-    Imagens,
-    Jdm,
-    Menu,
-    Noticias,
-    Professores
+    ImagensPage,
+    JdmPage,
+    MenuPage,
+    NoticiasPage,
+    ProfessoresPage
   ],
   providers: [
     StatusBar,

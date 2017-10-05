@@ -3,7 +3,7 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
-import { Aluno } from './../../models/aluno.model';
+import { Aluno } from './../../models/aluno.models';
 import { BaseProvider } from "../base/base";
 
 @Injectable()
