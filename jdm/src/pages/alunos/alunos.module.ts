@@ -9,5 +9,8 @@ import { AlunosPage } from './alunos';
   imports: [
     IonicPageModule.forChild(AlunosPage),
   ],
+  exports: [
+    AlunosPage
+  ]
 })
 export class AlunosPageModule {}

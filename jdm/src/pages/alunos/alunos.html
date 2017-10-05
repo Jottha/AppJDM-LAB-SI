@@ -6,13 +6,23 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar colo="blue">
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+      </button>
     <ion-title>alunos</ion-title>
   </ion-navbar>
 
 </ion-header>
 
-
 <ion-content padding>
+  <ion-list no-lines>
+    <button ion-item *ngFor="let aluno of alunos | async" (click)="goToFich(aluno)">
+    <ion-avatar item-start>
+      <img src="">
+    </ion-avatar>
+       {{ aluno.nome }}
+    </button>
+  </ion-list>  
 
 </ion-content>
