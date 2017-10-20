@@ -1,7 +1,10 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { FirebaseAuthState } from 'angularfire2';
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { CadastroPage } from './../cadastro/cadastro';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, ToastController, NavParams } from 'ionic-angular';
+import { NgForm } from '@angular/forms';
+import { Usuario } from '../../providers/auth/usuario';
+import { auth } from '../../providers/auth/auth';
+import { HomePage } from '../home/home';
 /**
  * Generated class for the LoginPage page.
  *
@@ -9,94 +12,46 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
  * on Ionic pages and navigation.
  */
 
+
+
 @IonicPage()
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  UserProvider: any;
 
-  signupForm: FormGroup;
+  user: Usuario = new Usuario();
+  @ViewChild('form') form: NgForm;
+  CadastroPage = CadastroPage;
 
-  constructor
-  (
+  constructor(
     public navCtrl: NavController,
-    public navParams: NavParams,
-
-    public alertCtrl: AlertController,
-    public authProvider: AuthProvider,
-    public formBuilder: FormBuilder,
-    public loadingCtrl: LoadingController,
-    
-    public userProvider: UserProvider
-  ) 
-  { 
-
+    private toastCtrl: ToastController,
+    private authService: auth,
+  public NavParams: NavParams) {
   }
 
-  let emailRegex = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
-
-    this.signupForm = this.formBuilder.group({
-      nome: ['', [Validators.required, Validators.minLength(3)]],
-      biografia: ['', [Validators.required, Validators.minLength(3)]],
-      academico: ['', [Validators.required, Validators.minLength(3)]],
-      email: ['', Validators.compose([Validators.required, Validators.pattern(emailRegex)])],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      telefone: ['', [Validators.required, Validators.maxLength(15)]],
-    });
-  }
-
-   onSubmit(): void {
-
-    let loading: Loading = this.showLoading();
-    let formUser = this.signupForm.value
-
-    this.authProvider.createAuthUser({
-      email: formUser.email,
-      password: formUser.password
-    }).then((authState: FirebaseAuthState) => {
-
-      delete formUser.password;
-
-      formUser.uid = authState.auth.uid;
-
-      this.userProvider.create(formUser)
+  signIn() {
+    if (this.form.form.valid) {
+      this.authService.signIn(this.user)
         .then(() => {
-          console.log('Usuário Cadastrado!');
-          loading.dismiss();
-        }).catch((error: any) => {
-          console.log(error);
-          loading.dismiss();
-          this.showAlert(error);
+          this.navCtrl.setRoot(HomePage);
+        })
+        .catch((error: any) => {
+          let toast = this.toastCtrl.create({ duration: 3000, position: 'bottom' });
+          if (error.code == 'auth/invalid-email') {
+            toast.setMessage('O e-mail digitado não é valido.');
+          } else if (error.code == 'auth/user-disabled') {
+            toast.setMessage('O usuário está desativado.');
+          } else if (error.code == 'auth/user-not-found') {
+            toast.setMessage('O usuário não foi encontrado.');
+          } else if (error.code == 'auth/wrong-password') {
+            toast.setMessage('A senha digitada não é valida.');
+          }
+          toast.present();
         });
-
-    }).catch((error: any) => {
-      console.log(error);
-      loading.dismiss();
-      this.showAlert(error);
-    });
+    }
   }
-
-  private showLoading(): Loading {
-    let loading: Loading = this.loadingCtrl.create({
-      content: 'Please Wait...'
-    });
-
-    loading.present();
-
-    return loading;
-  }
-
-  private showAlert(message: string): void {
-    this.alertCtrl.create({
-      message: message,
-      buttons: ['Ok']
-    }).present();
-  }
-  /*
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
-  }*/
 
 }

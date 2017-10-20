@@ -1,3 +1,4 @@
+import { CadastroPage } from './../pages/cadastro/cadastro';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -6,7 +7,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import {AngularFireModule, AuthProviders, AuthMethods } from 'angularFire2';
 import { MyApp } from './app.component';
 
-import { Login2Page } from '../pages/login2/login2';
 import { AlunosPage} from '../pages/alunos/alunos';
 import { EventosPage } from '../pages/eventos/eventos';
 import { FuncionariosPage } from '../pages/funcionarios/funcionarios';
@@ -38,7 +38,6 @@ const firebaseAuthConfig = {
 @NgModule({
   declarations: [
     MyApp,
-    Login2Page,
     AlunosPage,
     EventosPage,
     FuncionariosPage,
@@ -47,7 +46,8 @@ const firebaseAuthConfig = {
     JdmPage,
     MenuPage,
     NoticiasPage,
-    ProfessoresPage
+    ProfessoresPage,
+    CadastroPage
     
   ],
   imports: [
@@ -60,7 +60,6 @@ const firebaseAuthConfig = {
   entryComponents: [
     MyApp,
     HomePage,
-    Login2Page,
     AlunosPage,
     EventosPage,
     FuncionariosPage,
@@ -69,7 +68,8 @@ const firebaseAuthConfig = {
     JdmPage,
     MenuPage,
     NoticiasPage,
-    ProfessoresPage
+    ProfessoresPage,
+    CadastroPage
   ],
   providers: [
     StatusBar,
