@@ -7,7 +7,7 @@ import { AngularFireModule } from 'angularfire2';
 
 import { Aluno } from './../../models/aluno.models';
 import { AlunoProvider } from './../../providers/aluno/aluno';
-//Alunos
+//Alunossssssssssssssssss
 @IonicPage()
 @Component({
   selector: 'page-alunos',
