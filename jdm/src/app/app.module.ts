@@ -4,6 +4,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import {AngularFireModule, AuthProviders, AuthMethods } from 'angularFire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { MyApp } from './app.component';
 
 import { Login2Page } from '../pages/login2/login2';
@@ -53,6 +54,7 @@ const firebaseAuthConfig = {
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    AngularFireDatabaseModule,
     AngularFireModule.initializeApp(firebaseConfig, firebaseAuthConfig),
     HttpModule
   ],

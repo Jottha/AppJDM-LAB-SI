@@ -4,8 +4,8 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import { AuthProviders, AuthMethods } from 'angularfire2';
 import * as firebase from 'firebase/app';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { AuthProvider } from '../../../providers/auth/auth';
-import { AfAuth } from './../../providers/auth/auth';
+import { AuthProvider } from '../../providers/auth/auth';
+import { AfAuth } from '../../providers/auth/auth';
 import { FirebaseAuthState } from 'angularfire2';
 
 
