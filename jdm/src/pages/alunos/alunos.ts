@@ -3,8 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { FichaPage } from '../ficha/ficha';
 
-import { FirebaseListObservable } from 'angularfire2';
-
 import { Aluno } from './../../models/aluno.models';
 import { AlunoProvider } from './../../providers/aluno/aluno';
 

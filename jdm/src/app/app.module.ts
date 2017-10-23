@@ -3,10 +3,9 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-import {AngularFireModule, AuthProviders, AuthMethods } from 'angularFire2';
+import {AngularFireModule } from 'angularFire2';
 import { MyApp } from './app.component';
 
-import { Login2Page } from '../pages/login2/login2';
 import { AlunosPage} from '../pages/alunos/alunos';
 import { EventosPage } from '../pages/eventos/eventos';
 import { FuncionariosPage } from '../pages/funcionarios/funcionarios';
@@ -17,7 +16,6 @@ import { MenuPage } from '../pages/menu/menu';
 import { NoticiasPage } from '../pages/noticias/noticias';
 import { ProfessoresPage } from '../pages/professores/professores';
 
-import { AuthProvider } from './../providers/auth/auth';
 import { HttpModule } from '@angular/http';
 
 
@@ -30,15 +28,9 @@ export const firebaseConfig =
     messagingSenderId: "609842297942"
 }
 
-const firebaseAuthConfig = {
-  provider: AuthProviders.Custom,
-  method: AuthMethods.Password
-}
-
 @NgModule({
   declarations: [
     MyApp,
-    Login2Page,
     AlunosPage,
     EventosPage,
     FuncionariosPage,
@@ -53,14 +45,13 @@ const firebaseAuthConfig = {
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp(firebaseConfig, firebaseAuthConfig),
+    AngularFireModule.initializeApp(firebaseConfig),
     HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
-    Login2Page,
     AlunosPage,
     EventosPage,
     FuncionariosPage,
@@ -74,8 +65,7 @@ const firebaseAuthConfig = {
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}]
-    AuthProvider
+    {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
 export class AppModule {}

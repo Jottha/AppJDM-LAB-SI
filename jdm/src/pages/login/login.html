@@ -14,48 +14,58 @@
   </ion-navbar>
 </ion-header>
 
-
 <ion-content padding>
-  <h1 text-center>
-    <ion-icon class="auth-icon" name="person-add" color="corApp"></ion-icon>
-  </h1>
+  <ion-card>
+    <ion-card-header color="black">
+      Login
+    </ion-card-header>
+    <ion-card-content >
+      <ion-grid >
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label floating color="primary">
+                Email
+              </ion-label>
+              <ion-input type="text" [(ngModel)]="usuario.email"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
 
-  <form [formGroup]="signupForm" (ngSubmit)="onSubmit(); $event.preventDefault()">
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label floating color="primary">
+                Senha
+              </ion-label>
+              <ion-input type="password" [(ngModel)]="usuario.senha"></ion-input>
+            </ion-item>
+          </ion-col>  
+        </ion-row>
 
-    <ion-item>
-      <ion-icon name="person" item-left></ion-icon>
-      <ion-input type="text" placeholder="Nome" formControlName="nome"></ion-input>
-    </ion-item>
+        <ion-row>
+            <ion-col>
+              <button ion-button round full color="primary" (click)="logarFuncionario(usuario)" >
+                Login Funcionario
+              </button>
+            </ion-col>
+        </ion-row>
 
-     <ion-item>
-      <ion-icon name="paper" item-left></ion-icon>
-      <ion-input type="text" placeholder="Biografia" formControlName="biografia"></ion-input>
-    </ion-item>
+        <ion-row>
+            <ion-col>
+              <button ion-button round full color="primary" (click)="logarAluno(usuario)">
+                Login Aluno
+              </button>
+            </ion-col>
+        </ion-row>
 
-     <ion-item>
-      <ion-icon name="school" item-left></ion-icon>
-      <ion-input type="text" placeholder="Academico" formControlName="academico"></ion-input>
-    </ion-item>
-
-     <ion-item>
-      <ion-icon name="call" item-left></ion-icon>
-      <ion-input type="text" placeholder="Telefone" formControlName="telefone"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-icon name="at" item-left></ion-icon>
-      <ion-input type="text" placeholder="Email" formControlName="email"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-icon name="lock" item-left></ion-icon>
-      <ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
-    </ion-item>
-
-    <br>
-   
-      <button ion-button full type="submit" [disabled]="signupForm.invalid">Create Account</button>
-
-  </form>
+        <ion-row>
+            <ion-col>
+              <a (click)="goRegistrar()">Registrar-se</a>
+            </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>

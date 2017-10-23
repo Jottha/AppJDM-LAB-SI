@@ -2,27 +2,27 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
-import { AngularFire, FirebaseListObservable } from 'angularfire2';
-import { Aluno } from './../../models/aluno.models';
+import { AngularFire } from 'angularfire2';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { Alunos } from './../../models/aluno.models';
 import { BaseProvider } from "../base/base";
 
+
 @Injectable()
-export class AlunoProvider extends BaseProvider{
-
-  alunos: FirebaseListObservable<Aluno[]>;
-
+export class AlunoProvider {
+  items: FirebaseListObservable<any[]>;
+  alunomodels: Alunos;
   constructor(
-    public http: Http,
-    public af: AngularFire
-    ) {
-      super();
-      this.alunos = this.af.database.list(`/alunos`);
+              public registroProvider:RegistroProvider,
+              public db: AngularFireDatabase,
+            ) {
+              {
+              var path = '/disciplina/';
+              this.items = db.list(path);
+            };
+    
   }
-
-  create(aluno: Aluno): firebase.Promise<void> {
-    return this.af.database.object(`/alunos/${ aluno.uid }`)
-    .set(aluno)
-    .catch(this.handlePromiseError);
-  }
-
+  getAll(){
+    return this.items;
+  }  
 }
