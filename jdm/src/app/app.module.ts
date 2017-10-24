@@ -15,6 +15,7 @@ import { JdmPage } from '../pages/jdm/jdm';
 import { MenuPage } from '../pages/menu/menu';
 import { NoticiasPage } from '../pages/noticias/noticias';
 import { ProfessoresPage } from '../pages/professores/professores';
+import { LoginPage } from '../pages/login/login';
 
 import { HttpModule } from '@angular/http';
 
@@ -39,7 +40,8 @@ export const firebaseConfig =
     JdmPage,
     MenuPage,
     NoticiasPage,
-    ProfessoresPage
+    ProfessoresPage,
+    LoginPage
     
   ],
   imports: [
@@ -60,7 +62,8 @@ export const firebaseConfig =
     JdmPage,
     MenuPage,
     NoticiasPage,
-    ProfessoresPage
+    ProfessoresPage,
+    LoginPage
   ],
   providers: [
     StatusBar,

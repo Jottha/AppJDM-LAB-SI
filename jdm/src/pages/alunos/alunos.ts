@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { FichaPage } from '../ficha/ficha';
-
-import { Aluno } from './../../models/aluno.models';
-import { AlunoProvider } from './../../providers/aluno/aluno';
 
 @IonicPage()
 @Component({

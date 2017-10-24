@@ -3,7 +3,7 @@ import { RegistroProvider } from './../../providers/registro/registro';
 
 import { Usuario } from './../../models/usuario';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 
 /**
  * Generated class for the RegistrarPage page.
@@ -29,6 +29,4 @@ export class RegistrarPage {
       this.registroProvider.registrarSe(this.usuario);
       this.navCtrl.push(LoginPage);
     }
-  
-  
 }
