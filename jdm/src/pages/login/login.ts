@@ -6,23 +6,26 @@ import { RegistrarPage } from '../registrar/registrar';
 import { ProfessoresPage } from '../professores/professores';
 import { AlunosPage } from '../alunos/alunos';
 import { AngularFireAuth } from "angularfire2/auth";
+import { Observable } from 'rxjs/Observable';
+import * as firebase from 'firebase/app';
 
 
 
 @IonicPage()
 @Component({
   selector: 'page-login',
-  templateUrl: 'login.html'
+  templateUrl: 'login.html',
+  providers: [AngularFireAuth]
 })
 export class LoginPage
 {
-  usuario: Usuario;
+  usuario: Observable<firebase.User>;
   constructor(public navCtrl: NavController,
               private afAuth: AngularFireAuth,
               public navParams: NavParams
               )
   {   
-
+        this.usuario = afAuth.authState;
   }
 
   goRegistrar()

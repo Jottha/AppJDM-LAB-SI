@@ -18,6 +18,8 @@ import { ProfessoresPage } from '../pages/professores/professores';
 import { LoginPage } from '../pages/login/login';
 
 import { HttpModule } from '@angular/http';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 
 export const firebaseConfig =
@@ -41,14 +43,13 @@ export const firebaseConfig =
     MenuPage,
     NoticiasPage,
     ProfessoresPage,
-    LoginPage
-    
-  ],
+    LoginPage],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig),
-    HttpModule
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -68,7 +69,8 @@ export const firebaseConfig =
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AngularFireAuth
   ]
 })
 export class AppModule {}
