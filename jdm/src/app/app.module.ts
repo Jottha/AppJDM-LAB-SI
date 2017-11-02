@@ -17,10 +17,11 @@ import { NoticiasPage } from '../pages/noticias/noticias';
 import { ProfessoresPage } from '../pages/professores/professores';
 import { LoginPage } from '../pages/login/login';
 
+
 import { HttpModule } from '@angular/http';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
-
+import { AuthProvider } from '../providers/auth/auth';
 
 export const firebaseConfig =
 {   apiKey: "AIzaSyDjRP9KOtydhxhSDIJTKfcTVi8rv1YK_c8",
@@ -43,13 +44,14 @@ export const firebaseConfig =
     MenuPage,
     NoticiasPage,
     ProfessoresPage,
-    LoginPage],
+    LoginPage
+  ],
   imports: [
     BrowserModule,
     HttpModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule 
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -58,7 +60,6 @@ export const firebaseConfig =
     AlunosPage,
     EventosPage,
     FuncionariosPage,
-    HomePage,
     ImagensPage,
     JdmPage,
     MenuPage,
@@ -70,7 +71,8 @@ export const firebaseConfig =
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AngularFireAuth
+    AngularFireAuth,
+    AuthProvider
   ]
 })
 export class AppModule {}

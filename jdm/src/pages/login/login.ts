@@ -3,11 +3,10 @@ import { NavController } from 'ionic-angular';
 import { IonicPage, NavParams } from 'ionic-angular';
 import { Usuario } from '../../models/usuario';
 import { RegistrarPage } from '../registrar/registrar';
-import { ProfessoresPage } from '../professores/professores';
-import { AlunosPage } from '../alunos/alunos';
 import { AngularFireAuth } from "angularfire2/auth";
 import { Observable } from 'rxjs/Observable';
 import * as firebase from 'firebase/app';
+import { HomePage } from '../home/home';
 
 
 
@@ -38,7 +37,7 @@ export class LoginPage
       {   const result = this.afAuth.auth.signInWithEmailAndPassword(usuario.email, usuario.senha);
           if(result)
           {
-              this.navCtrl.push(ProfessoresPage);
+              this.navCtrl.push(HomePage);
           }
       }catch(e){
         console.error(e);
@@ -49,7 +48,7 @@ export class LoginPage
      {  const result = this.afAuth.auth.signInWithEmailAndPassword(usuario.email, usuario.senha);
         if(result)
         {
-          this.navCtrl.push(AlunosPage);
+          this.navCtrl.push(HomePage);
         }
      }catch(e)
      {  
