@@ -13,8 +13,7 @@ import { HomePage } from '../home/home';
 @IonicPage()
 @Component({
   selector: 'page-login',
-  templateUrl: 'login.html',
-  providers: [AngularFireAuth]
+  templateUrl: 'login.html'
 })
 export class LoginPage
 {

@@ -21,7 +21,7 @@ import { LoginPage } from '../pages/login/login';
 import { HttpModule } from '@angular/http';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { AuthProvider } from '../providers/auth/auth';
+import { RegistroProvider } from '../providers/registro/registro';
 
 export const firebaseConfig =
 {   apiKey: "AIzaSyDjRP9KOtydhxhSDIJTKfcTVi8rv1YK_c8",
@@ -72,7 +72,7 @@ export const firebaseConfig =
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AngularFireAuth,
-    AuthProvider
+    RegistroProvider
   ]
 })
 export class AppModule {}
