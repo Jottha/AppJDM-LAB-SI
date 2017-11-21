@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController} from 'ionic-angular';
 import { Professor } from "../../models/professor.models";
 import { FirebaseListObservable, AngularFireDatabase } from "angularfire2/database";
 import { Http } from "@angular/http/http";
