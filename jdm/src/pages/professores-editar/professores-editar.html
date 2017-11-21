@@ -1,0 +1,30 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title>Modificar {{novoProfessor.nome}}</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+  
+    <ion-item>
+        <ion-label floating>Nome</ion-label>
+        <ion-input type="text" [(ngModel)]="novoProfessor.nome"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+        <ion-label floating>Disciplina</ion-label>
+        <ion-input type="text" [(ngModel)]="novoProfessor.disciplina"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+        <ion-label floating>Formação</ion-label>
+        <ion-input type="text" [(ngModel)]="novoProfessor.formacao"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label floating>Idade</ion-label>
+        <ion-input type="text" [(ngModel)]="novoProfessor.idade"></ion-input>
+    </ion-item>
+  
+    <button ion-button block (click)="editarNovoProfessor(novoProfessor)">Confirmar</button>
+  </ion-content>

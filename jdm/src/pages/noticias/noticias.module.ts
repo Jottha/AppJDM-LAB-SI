@@ -9,5 +9,6 @@ import { NoticiasPage } from './noticias';
   imports: [
     IonicPageModule.forChild(NoticiasPage),
   ],
+  entryComponents: [NoticiasPage]
 })
 export class NoticiasPageModule {}

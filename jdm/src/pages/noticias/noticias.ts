@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the NoticiasPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+import { Noticia } from "../../models/noticia.models";
+import { FirebaseListObservable, AngularFireDatabase } from "angularfire2/database";
+import { Http } from "@angular/http/http";
+import { NoticiasEditarPage } from "../noticias-editar/noticias-editar";
 
 @IonicPage()
 @Component({
@@ -15,11 +12,25 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class NoticiasPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  novaNoticia= {} as Noticia;
+  
+  Noticia$: FirebaseListObservable<Noticia[]>
+  
+      constructor(public http: Http, public af: AngularFireDatabase, public navCtrl: NavController,) {
+        this.Noticia$ = this.af.list('Noticias');
+      }
+    
+      addNoticia(novaNoticia: Noticia) {
+        this.Noticia$.push({
+          titulo: this.novaNoticia.titulo,
+          dataNoticia: this.novaNoticia.dataNoticia
+        });
+  
+        this.novaNoticia = {} as Noticia;
+      }
+  
+      editar(){
+        this.navCtrl.push(NoticiasEditarPage);
+      }
+  
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad NoticiasPage');
-  }
-
-}

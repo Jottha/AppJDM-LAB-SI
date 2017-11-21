@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the ImagensPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+import { Imagem } from "../../models/imagem.models";
+import { FirebaseListObservable, AngularFireDatabase } from "angularfire2/database";
+import { Http } from "@angular/http/http";
+import { ImagensEditarPage } from "../imagens-editar/imagens-editar";
 
 @IonicPage()
 @Component({
@@ -15,11 +12,24 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ImagensPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  novaImagem= {} as Imagem;
+  
+    Imagem$: FirebaseListObservable<Imagem[]>
+  
+      constructor(public http: Http, public af: AngularFireDatabase, public navCtrl: NavController,) {
+        this.Imagem$ = this.af.list('Imagens');
+      }
+    
+      addImagem(novaImagem: Imagem) {
+        this.Imagem$.push({
+          legenda: this.novaImagem.legenda
+        });
+  
+        this.novaImagem = {} as Imagem;
+      }
+  
+      editar(){
+        this.navCtrl.push(ImagensEditarPage);
+      }
+  
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ImagensPage');
-  }
-
-}

@@ -6,18 +6,25 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { HttpModule } from '@angular/http';
+import { HttpModule } from '@angular/http/http';
 import { MyApp } from './app.component';
 
 import { AlunosPage } from '../pages/alunos/alunos';
 import { EventosPage } from '../pages/eventos/eventos';
-import { FuncionariosPage } from '../pages/funcionarios/funcionarios';
 import { HomePage } from '../pages/home/home';
 import { ImagensPage } from '../pages/imagens/imagens';
-import { JdmPage } from '../pages/jdm/jdm';
-import { MenuPage } from '../pages/menu/menu';
 import { NoticiasPage } from '../pages/noticias/noticias';
 import { ProfessoresPage } from '../pages/professores/professores';
+import { AlunosEditarPage } from "../pages/alunos-editar/alunos-editar";
+import { AlunosListaPage } from "../pages/alunos-lista/alunos-lista";
+import { EventosEditarPage } from "../pages/eventos-editar/eventos-editar";
+import { EventosListaPage } from "../pages/eventos-lista/eventos-lista";
+import { ImagensEditarPage } from "../pages/imagens-editar/imagens-editar";
+import { ImagensListaPage } from "../pages/imagens-lista/imagens-lista";
+import { NoticiasEditarPage } from "../pages/noticias-editar/noticias-editar";
+import { NoticiasListaPage } from "../pages/noticias-lista/noticias-lista";
+import { ProfessoresEditarPage } from "../pages/professores-editar/professores-editar";
+import { ProfessoresListaPage } from "../pages/professores-lista/professores-lista";
 
 export const firebaseConfig =
   {
@@ -29,24 +36,25 @@ export const firebaseConfig =
     messagingSenderId: "1087957543161"
   }
 
-/* const firebaseAuthConfig = {
-  provider: AuthProviders.Custom,
-  method: AuthMethods.Password
-} */
-
 @NgModule({
   declarations: [
     MyApp,
     AlunosPage,
     EventosPage,
-    FuncionariosPage,
     HomePage,
     ImagensPage,
-    JdmPage,
-    MenuPage,
     NoticiasPage,
     ProfessoresPage,
-    
+    AlunosEditarPage,
+    AlunosListaPage,
+    EventosEditarPage,
+    EventosListaPage,
+    ImagensEditarPage,
+    ImagensListaPage,
+    NoticiasEditarPage,
+    NoticiasListaPage,
+    ProfessoresEditarPage,
+    ProfessoresListaPage,
 
   ],
   imports: [
@@ -62,13 +70,20 @@ export const firebaseConfig =
     HomePage,
     AlunosPage,
     EventosPage,
-    FuncionariosPage,
     HomePage,
     ImagensPage,
-    JdmPage,
-    MenuPage,
     NoticiasPage,
-    ProfessoresPage
+    ProfessoresPage,
+    AlunosEditarPage,
+    AlunosListaPage,
+    EventosEditarPage,
+    EventosListaPage,
+    ImagensEditarPage,
+    ImagensListaPage,
+    NoticiasEditarPage,
+    NoticiasListaPage,
+    ProfessoresEditarPage,
+    ProfessoresListaPage,
   ],
   providers: [
     StatusBar,

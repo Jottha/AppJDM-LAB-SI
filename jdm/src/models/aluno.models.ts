@@ -2,7 +2,7 @@ export interface Aluno {
 
     $key?: string,
     nome: string;
-    matricula: number;
+    matricula: string;
     serie: string;
     senha: string;
 }

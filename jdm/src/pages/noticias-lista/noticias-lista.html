@@ -1,0 +1,22 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title>Lista de Notícias</ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="noticiasPage()">
+         <ion-icon name="add"></ion-icon>
+       </button>
+        </ion-buttons>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+    <ion-list>
+        <ion-item *ngFor="let item of Noticia$ | async" (click)="selecionarNovaNoticia(item)">
+            <h2>Descrição: {{item.titulo}}</h2>
+            <h3>Data da Notícia: {{item.dataNoticia}}</h3>
+        </ion-item>
+    </ion-list>
+
+</ion-content>
