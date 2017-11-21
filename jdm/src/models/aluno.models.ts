@@ -1,12 +1,8 @@
-export class Aluno {
-    
-    constructor (
-        public nome: string,
-        public matricula: string,
-        public serie: string,
-        public email: string,
-        public uid: string,
-        public senha: string
-    ){}
-    
+export interface Aluno {
+
+    $key?: string,
+    nome: string;
+    matricula: number;
+    serie: string;
+    senha: string;
 }

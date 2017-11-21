@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { FichaPage } from '../ficha/ficha';
+import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
+import 'rxjs/add/operator/map';
 
-import { FirebaseListObservable } from 'angularfire2';
-
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { Aluno } from './../../models/aluno.models';
-import { AlunoProvider } from './../../providers/aluno/aluno';
 
 @IonicPage()
 @Component({
@@ -15,11 +15,19 @@ import { AlunoProvider } from './../../providers/aluno/aluno';
 })
 export class AlunosPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  novoAluno= {} as Aluno;
+    Aluno$: FirebaseListObservable<Aluno[]>
+  
+    constructor(public http: Http, public af: AngularFireDatabase, public navCtrl: NavController,) {
+      this.Aluno$ = this.af.list('Alunos');
+    }
+  
+    addAluno(novoAluno: Aluno) {
+      this.Aluno$.push({
+        nome: this.novoAluno.nome,
+      });
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AlunosPage');
-  }
+      this.novoAluno = {} as Aluno;
+    }
 
 }

@@ -16,13 +16,19 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-list no-lines>
+  <!-- ion-list no-lines>
     <button ion-item *ngFor="let aluno of alunos | async" (click)="goToFich(aluno)">
     <ion-avatar item-start>
       <img src="">
     </ion-avatar>
        {{ aluno.nome }}
     </button>
-  </ion-list>  
+  </ion-list>   -->
+
+  <ion-item>
+    <ion-label floating>Nome</ion-label>
+    <ion-input type="text" [(ngModel)]="novoAluno.nome"></ion-input>
+</ion-item>
+<button ion-button block (click)="addAluno(novoAluno)">Adicionar Aluno</button>
 
 </ion-content>
