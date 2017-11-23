@@ -1,32 +1,32 @@
 
 <ion-header>
-
-  <ion-navbar color="primary">
-      <button ion-button menuToggle>
-          <ion-icon name="menu"></ion-icon>
-      </button>
-    <ion-title>Adicionar alunos</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-<ion-content padding>
-
-  <ion-item>
-    <ion-label floating>Nome</ion-label>
-    <ion-input type="text" [(ngModel)]="novoAluno.nome"></ion-input>
-  </ion-item>
-
-  <ion-item>
-      <ion-label floating>Matricula</ion-label>
-      <ion-input type="text" [(ngModel)]="novoAluno.matricula"></ion-input>
-  </ion-item>
-
-  <ion-item>
-      <ion-label floating>Serie</ion-label>
-      <ion-input type="text" [(ngModel)]="novoAluno.serie"></ion-input>
-  </ion-item>
-
-<button ion-button block (click)="addAluno(novoAluno)">Adicionar Aluno</button>
-
-</ion-content>
+    
+      <ion-navbar color="primary">
+          <button ion-button menuToggle>
+              <ion-icon name="menu"></ion-icon>
+          </button>
+        <ion-title>Adicionar alunos</ion-title>
+      </ion-navbar>
+    
+    </ion-header>
+    
+    <ion-content padding>
+    
+      <ion-item>
+        <ion-label floating>Nome</ion-label>
+        <ion-input type="text" [(ngModel)]="novoAluno.nome"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+          <ion-label floating>Matrícula</ion-label>
+          <ion-input type="number" pattern="[0-9]" [(ngModel)]="novoAluno.matricula"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+          <ion-label floating>Série</ion-label>
+          <ion-input type="text" [(ngModel)]="novoAluno.serie"></ion-input>
+      </ion-item>
+    
+    <button ion-button block (click)="addAluno(novoAluno)">Adicionar Aluno</button>
+    
+    </ion-content>

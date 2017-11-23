@@ -1,5 +1,7 @@
+import { AuthService } from '../../providers/auth-service';
+
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, IonicPage } from 'ionic-angular';
 import { AlunosPage } from "../alunos/alunos";
 import { EventosPage } from "../eventos/eventos";
 import { NoticiasPage } from "../noticias/noticias";
@@ -13,16 +15,27 @@ import { ProfessoresListaPage } from "../professores-lista/professores-lista";
 import { NoticiasListaPage } from "../noticias-lista/noticias-lista";
 import { EventosListaPage } from "../eventos-lista/eventos-lista";
 
+@IonicPage()
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
-
+  username = '';
+  email = '';
+  constructor(private navCtrl: NavController, private auth: AuthService) {
+    let info = this.auth.getUserInfo();
+    this.username = info['name'];
+    this.email = info['email'];
   }
-  
+ 
+  public logout() {
+    this.auth.logout().subscribe(succ => {
+      this.navCtrl.setRoot('LoginPage')
+    });
+  }
+
   public alunos() {
     this.navCtrl.push(AlunosListaPage);
   }

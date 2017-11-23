@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ActionSheetController } from 'ionic-angular';
+import { FirebaseListObservable, AngularFireDatabase } from "angularfire2/database";
+import { Aluno } from "../../models/aluno.models";
 import { AlunosEditarPage } from "../alunos-editar/alunos-editar";
 import { AlunosPage } from "../alunos/alunos";
-import { Aluno } from "../../models/aluno.models";
-import { FirebaseListObservable, AngularFireDatabase } from "angularfire2/database";
 
 @IonicPage()
 @Component({
@@ -11,8 +11,9 @@ import { FirebaseListObservable, AngularFireDatabase } from "angularfire2/databa
   templateUrl: 'alunos-lista.html',
 })
 export class AlunosListaPage {
-  Aluno$: FirebaseListObservable<Aluno[]>
 
+  Aluno$: FirebaseListObservable<Aluno[]>
+  
     constructor(public navCtrl: NavController, public navParams: NavParams, private database: AngularFireDatabase, private actionSheetCtrl: ActionSheetController) {
       this.Aluno$ = this.database.list('/Alunos');
     }

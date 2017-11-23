@@ -1,3 +1,5 @@
+import { AuthService } from './../providers/auth-service';
+
 
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -26,6 +28,7 @@ import { ProfessoresEditarPage } from "../pages/professores-editar/professores-e
 import { ProfessoresListaPage } from "../pages/professores-lista/professores-lista";
 import { SobrePage } from "../pages/sobre/sobre";
 import { LocalizacaoPage } from "../pages/localizacao/localizacao";
+import { LoginPage } from '../pages/login/login';
 
 export const firebaseConfig =
   {
@@ -58,7 +61,7 @@ export const firebaseConfig =
     ProfessoresListaPage,
     SobrePage,
     LocalizacaoPage,
-
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -88,12 +91,14 @@ export const firebaseConfig =
     ProfessoresListaPage,
     SobrePage,
     LocalizacaoPage,
-    
+    LoginPage    
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: ErrorHandler, useClass: IonicErrorHandler }]
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    AuthService
+  ]
 
 })
 export class AppModule { }

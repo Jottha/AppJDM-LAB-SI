@@ -1,3 +1,25 @@
+<ion-header>
+  
+  
+   <ion-navbar color="dark">
+            <ion-title>
+                Member Area
+            </ion-title>
+            <ion-buttons end>
+                    <button ion-button (click)="logout()">
+                        <ion-icon name="log-out"></ion-icon>
+                    </button>
+            </ion-buttons>
+  </ion-navbar>
+</ion-header>
+ 
+<ion-content class="home" padding>
+  <h3>Welcome inside, {{username}}!</h3>
+  Your Email is: {{email}}
+</ion-content>
+
+<!-------------------------------------------------------------------------------------------->
+
 <ion-toolbar transparent>
     <button ion-button menuToggle class="icon">
       <ion-icon name="menu"></ion-icon>
@@ -9,7 +31,7 @@
     <ion-row>
 
         <ion-col>
-            <img class="logo" src="assets/img/capa.png">
+            <img class="logo" src="assets/img/JDM.png">
         </ion-col>
 
         <ion-row>

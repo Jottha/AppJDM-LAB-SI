@@ -13,7 +13,7 @@
 <ion-content padding>
 
     <ion-list>
-        <ion-item *ngFor="let item of Aluno$" (click)="selecionarNovoAluno(item)">
+        <ion-item *ngFor="let item of Aluno$ | async" (click)="selecionarNovoAluno(item)">
             <h2>Nome: {{item.nome}}</h2>
             <h3>Matricula: {{item.matricula}}</h3>
             <h3>Série: {{item.serie}}</h3>

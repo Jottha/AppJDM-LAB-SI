@@ -1,32 +1,47 @@
-import { LoginPage } from './../login/login';
-import { RegistroProvider } from './../../providers/registro/registro';
-
-import { Usuario } from './../../models/usuario';
 import { Component } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
-
-/**
- * Generated class for the RegistrarPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
+import { NavController, AlertController, IonicPage } from 'ionic-angular';
+import { AuthService } from '../../providers/auth-service';
+ 
 @IonicPage()
 @Component({
-  selector: 'page-registrar',
-  templateUrl: 'registrar.html',
+  selector: 'page-register',
+  templateUrl: 'register.html',
 })
-export class RegistrarPage {
-    usuario: Usuario;
-  
-    constructor(public navCtrl: NavController,
-                public registroProvider: RegistroProvider ) {
-                this.usuario = new Usuario();
-    }
-  
-    registrar(){
-      this.registroProvider.registrarSe(this.usuario);
-      this.navCtrl.push(LoginPage);
-    }
+export class RegisterPage {
+  createSuccess = false;
+  registerCredentials = { email: '', password: '' };
+ 
+  constructor(private nav: NavController, private auth: AuthService, private alertCtrl: AlertController) { }
+ 
+  public register() {
+    this.auth.register(this.registerCredentials).subscribe(success => {
+      if (success) {
+        this.createSuccess = true;
+        this.showPopup("Success", "Account created.");
+      } else {
+        this.showPopup("Error", "Problem creating account.");
+      }
+    },
+      error => {
+        this.showPopup("Error", error);
+      });
+  }
+ 
+  showPopup(title, text) {
+    let alert = this.alertCtrl.create({
+      title: title,
+      subTitle: text,
+      buttons: [
+        {
+          text: 'OK',
+          handler: data => {
+            if (this.createSuccess) {
+              this.nav.popToRoot();
+            }
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
 }

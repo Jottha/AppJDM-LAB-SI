@@ -1,96 +1,23 @@
-<ion-menu id="myMenu" [content]="NAV" side="left">
+<ion-menu [content]="NAV">  
     
-        <ion-content padding class="background">
+  <ion-header transparent>
+    <ion-navbar tranparent>
+      <ion-title>Menu</ion-title>
+    </ion-navbar>
+  </ion-header>
     
-            <ion-item-divider class="lista1" align="center"></ion-item-divider>
-            <img class="logoApp" src="assets/img/capa.png">
-            <ion-item-divider class="lista2" align="center"></ion-item-divider>
-    
-            <ion-item-group>
-                <ion-list>
-                    <ion-item-divider class="listaMenu" align="center">JDM</ion-item-divider>
-    
-                    <ion-row class="background" menuClose="myMenu">
-                        <ion-col>
-                            <img src="assets/img/aluno.png" class="imagemButton">
-                        </ion-col>
-    
-                        <ion-col class="nomeIcon">
-                            <b>Alunos</b>
-                        </ion-col>
-                    </ion-row>
-    
-                    <ion-row class="background" menuClose="myMenu">
-                        <ion-col>
-                            <img src="assets/img/professor.png" class="imagemButton">
-                        </ion-col>
-    
-                        <ion-col class="nomeIcon">
-                            <b>Professores</b>
-                        </ion-col>
-                    </ion-row>
-    
-                    <ion-item-divider class="listaMenu" align="center">JDM</ion-item-divider>
-    
-                    <ion-row class="background" menuClose="myMenu">
-                        <ion-col>
-                            <img src="assets/img/evento.png" class="imagemButton">
-                        </ion-col>
-    
-                        <ion-col class="nomeIcon">
-                            <b>Evento</b>
-                        </ion-col>
-                    </ion-row>
-    
-                    <ion-row class="background" menuClose="myMenu">
-                        <ion-col>
-                            <img src="assets/img/noticias.png" class="imagemButton">
-                        </ion-col>
-    
-                        <ion-col class="nomeIcon">
-                            <b>Notícias</b>
-                        </ion-col>
-                    </ion-row>
-    
-                    <ion-item-divider class="listaMenu" align="center">JDM</ion-item-divider>
-    
-                    <ion-row class="background" menuClose="myMenu">
-                        <ion-col>
-                            <img src="assets/img/imagem.png" class="imagemButton">
-                        </ion-col>
-    
-                        <ion-col class="nomeIcon">
-                            <b>Imagens</b>
-                        </ion-col>
-                    </ion-row>
-    
-                    <ion-row class="background" menuClose="myMenu">
-                        <ion-col>
-                            <img src="assets/img/sobre.png" class="imagemButton">
-                        </ion-col>
-    
-                        <ion-col class="nomeIcon">
-                            <b>Sobre</b>
-                        </ion-col>
-                    </ion-row>
+  <ion-content>    
+    <img class="logo" src="assets/icon/jdm.png">
+    <ion-list>
+      <ion-item-divider class="cor" align="center">JDM</ion-item-divider>
+      <ion-item item-start *ngFor="let page of pages" (click)="goToPage(page.component)" menuClose>
+        <ion-avatar >
+              <ion-icon align="center"item-left name="{{ page.icon }}"></ion-icon>
+            {{ page.title }}
+        </ion-avatar>
+      </ion-item>
+    </ion-list>
 
-                    <ion-row class="background" menuClose="myMenu">
-                        <ion-col>
-                            <img src="assets/img/localizacao.png" class="imagemButton">
-                        </ion-col>
-    
-                        <ion-col class="nomeIcon">
-                            <b>Localização</b>
-                        </ion-col>
-                    </ion-row>
-    
-                </ion-list>
-            </ion-item-group>
-    
-    
-        </ion-content>
-    
-    </ion-menu>
-    
-    
-    <ion-nav #NAV [root]="rootPage"></ion-nav>
+</ion-content>
+</ion-menu>
+<ion-nav #NAV [root]="rootPage"></ion-nav>
