@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar color="primary">
+      <ion-title>Modificar {{novoAluno.nome}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-item>
+      <ion-label floating>Nome</ion-label>
+      <ion-input type="text" [(ngModel)]="novoAluno.nome"></ion-input>
+  </ion-item>
+
+  <ion-item>
+      <ion-label floating>Matricula</ion-label>
+      <ion-input type="number" [(ngModel)]="novoAluno.matricula"></ion-input>
+  </ion-item>
+
+  <ion-item>
+      <ion-label floating>Série</ion-label>
+      <ion-input type="number" [(ngModel)]="novoAluno.serie"></ion-input>
+  </ion-item>
+
+  <button ion-button block (click)="editarNovoAluno(novoAluno)">Confirmar</button>
+</ion-content>

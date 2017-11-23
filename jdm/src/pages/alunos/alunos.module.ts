@@ -11,6 +11,7 @@ import { AlunosPage } from './alunos';
   ],
   exports: [
     AlunosPage
-  ]
+  ],
+  entryComponents: [AlunosPage]
 })
 export class AlunosPageModule {}

@@ -9,5 +9,6 @@ import { ImagensPage } from './imagens';
   imports: [
     IonicPageModule.forChild(ImagensPage),
   ],
+  entryComponents: [ImagensPage]
 })
 export class ImagensPageModule {}

@@ -1,0 +1,15 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title>Modificar {{novaImagem.legenda}}</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+  
+    <ion-item>
+        <ion-label floating>Legenda</ion-label>
+        <ion-input type="text" [(ngModel)]="novaImagem.legenda"></ion-input>
+    </ion-item>
+  
+    <button ion-button block (click)="editarNovaImagem(novaImagem)">Confirmar</button>
+  </ion-content>

@@ -1,19 +1,94 @@
-<ion-header>
-  <ion-toolbar transparent color="corApp">
-    <button ion-button menuToggle>
+<ion-toolbar transparent>
+    <button ion-button menuToggle class="icon">
       <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>JDM</ion-title>
-  </ion-toolbar>
-</ion-header>
+  </button>
+</ion-toolbar>
 
+<ion-content padding class="background">
 
-<ion-content padding>
-  
-  <ul class="listaBotao">
-    <li class="botao" (click)="pagina1()">
-        <img src="assets/icons/icon.png">
-         <p align=center>Jdm</p>
-    </li>
-  </ul>
+    <ion-row>
+
+        <ion-col>
+            <img class="logo" src="assets/img/capa.png">
+        </ion-col>
+
+        <ion-row>
+            <ion-col>
+                <button ion-button block clear (click)="alunos()">
+                <img class="button" src="assets/img/aluno.png"> 
+              </button>
+                <p align="center"><b>Alunos</b></p>
+            </ion-col>
+
+            <ion-col>
+                <button ion-button block clear (click)="professores()">
+                <img class="button" src="assets/img/professor.png"> 
+              </button>
+                <p align="center"><b>Professores</b></p>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col>
+                <button ion-button block clear (click)="noticias()">
+                <img class="button" src="assets/img/noticias.png"> 
+                </button>
+                <p align="center"><b>Noticias</b></p>
+            </ion-col>
+
+            <ion-col>
+                <button ion-button block clear (click)="imagens()">
+                <img class="button" src="assets/img/imagem.png">
+                </button>
+                <p align="center"><b>Imagens</b></p>
+            </ion-col>
+
+            <ion-col>
+                <button ion-button block clear (click)="eventos()">
+                <img class="button" src="assets/img/evento.png">
+                </button>
+                <p align="center"><b>Eventos</b></p>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col>
+                <button ion-button block clear (click)="localizacao()">
+                <img class="button" src="assets/img/localizacao.png">
+                </button>
+                <p align="center"><b>Localização</b></p>
+            </ion-col>
+        
+            <ion-col>
+                <button ion-button block clear (click)="sobre()">
+                <img class="button" src="assets/img/sobre.png">
+                </button>
+                <p align="center"><b>Sobre a JDM</b></p>
+            </ion-col>
+
+        </ion-row>
+
+        <ion-footer>
+            <ion-row>
+                <ion-col>
+                    <button ion-button block clear> <a href="https://www.facebook.com/joaodionisio.demendonca">
+                        <ion-icon name="logo-facebook"></ion-icon></a>
+                  </button>
+                </ion-col>
+
+                <ion-col>
+                    <button ion-button block clear> <a href="https://www.youtube.com">
+                        <ion-icon name="logo-youtube"></ion-icon></a>
+                  </button>
+                </ion-col>
+
+                <ion-col>
+                    <button ion-button block clear> <a href="https://www.instagram.com">
+                        <ion-icon name="logo-instagram"></ion-icon></a>
+                  </button>
+                </ion-col>
+            </ion-row>
+        </ion-footer>
+    </ion-row>
+
 </ion-content>

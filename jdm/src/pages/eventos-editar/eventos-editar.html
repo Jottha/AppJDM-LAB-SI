@@ -1,0 +1,25 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title>Modificar {{novoEvento.descricao}}</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+  
+    <ion-item>
+        <ion-label floating>Descrição</ion-label>
+        <ion-input type="text" [(ngModel)]="novoEvento.descricao"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+        <ion-label floating>Data de Inicio</ion-label>
+        <ion-input type="text" [(ngModel)]="novoEvento.dataInicio"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+        <ion-label floating>Data de Término</ion-label>
+        <ion-input type="text" [(ngModel)]="novoEvento.dataFim"></ion-input>
+    </ion-item>
+  
+    <button ion-button block (click)="editarNovoEvento(novoEvento)">Confirmar</button>
+  </ion-content>

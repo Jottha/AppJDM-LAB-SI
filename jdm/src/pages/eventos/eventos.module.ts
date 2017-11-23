@@ -9,5 +9,6 @@ import { EventosPage } from './eventos';
   imports: [
     IonicPageModule.forChild(EventosPage),
   ],
+  entryComponents: [EventosPage]
 })
 export class EventosPageModule {}

@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the ProfessoresPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+import { Professor } from "../../models/professor.models";
+import { FirebaseListObservable, AngularFireDatabase } from "angularfire2/database";
+import { ProfessoresEditarPage } from "../professores-editar/professores-editar";
 
 @IonicPage()
 @Component({
@@ -15,11 +11,29 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ProfessoresPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  novoProfessor= {} as Professor;
+  
+  Professor$: FirebaseListObservable<Professor[]>
+  
+      constructor(public af: AngularFireDatabase, public navCtrl: NavController,) {
+        this.Professor$ = this.af.list('Professores');
+      }
+    
+      addProfessor(novoProfessor: Professor) {
+        this.Professor$.push({
+          nome: this.novoProfessor.nome,
+          disciplina: this.novoProfessor.disciplina,
+          formacao: this.novoProfessor.formacao,
+          idade: this.novoProfessor.idade
+        });
+  
+        this.novoProfessor = {} as Professor;
+        this.navCtrl.pop();
+      }
+  
+      editar(){
+        this.navCtrl.push(ProfessoresEditarPage);
+      }
+  
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ProfessoresPage');
-  }
-
-}
+  

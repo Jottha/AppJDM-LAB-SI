@@ -1,32 +1,53 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { JdmPage } from "../jdm/jdm";
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { NavController, NavParams } from 'ionic-angular';
+import { AlunosPage } from "../alunos/alunos";
+import { EventosPage } from "../eventos/eventos";
+import { NoticiasPage } from "../noticias/noticias";
+import { ProfessoresPage } from "../professores/professores";
+import { ImagensPage } from "../imagens/imagens";
+import { SobrePage } from "../sobre/sobre";
+import { LocalizacaoPage } from "../localizacao/localizacao";
+import { AlunosListaPage } from "../alunos-lista/alunos-lista";
+import { ImagensListaPage } from "../imagens-lista/imagens-lista";
+import { ProfessoresListaPage } from "../professores-lista/professores-lista";
+import { NoticiasListaPage } from "../noticias-lista/noticias-lista";
+import { EventosListaPage } from "../eventos-lista/eventos-lista";
 
-@IonicPage()
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html',
+  templateUrl: 'home.html'
 })
 export class HomePage {
 
-  jdms: FirebaseListObservable<any>;
+  constructor(public navCtrl: NavController) {
 
-  constructor(
-    public navCtrl: NavController, 
-    public db: AngularFireDatabase, 
-    public navParams: NavParams,
-    )
-  {
-    this.jdms = db.list('/Jdms');
-    console.log(this.jdms);
   }
-  ionViewDidLoad()
-  {
-    console.log('ionViewDidLoad HomePage');
+  
+  public alunos() {
+    this.navCtrl.push(AlunosListaPage);
   }
-  pagina1()
-  {
-    this.navCtrl.push(JdmPage);
+    
+  public eventos() {
+    this.navCtrl.push(EventosListaPage);
+  }
+  
+  public noticias(){
+    this.navCtrl.push(NoticiasListaPage)
+  }
+
+  public professores(){
+    this.navCtrl.push(ProfessoresListaPage)
+  }
+
+  public imagens(){
+    this.navCtrl.push(ImagensListaPage)
+  }
+
+  public sobre(){
+    this.navCtrl.push(SobrePage)
+  }
+
+  public localizacao(){
+    this.navCtrl.push(LocalizacaoPage)
   }
 }

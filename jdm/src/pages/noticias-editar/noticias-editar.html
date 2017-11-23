@@ -1,0 +1,20 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title>Modificar {{novaNoticia.titulo}}</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+  
+    <ion-item>
+        <ion-label floating>Título</ion-label>
+        <ion-input type="text" [(ngModel)]="novaNoticia.descricao"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+        <ion-label floating>Data da notícia</ion-label>
+        <ion-input type="text" [(ngModel)]="novaNoticia.dataInicio"></ion-input>
+    </ion-item>
+  
+    <button ion-button block (click)="editarNovaNoticia(novaNoticia)">Confirmar</button>
+  </ion-content>
