@@ -7,7 +7,7 @@
           </button>
         <ion-title>Adicionar alunos</ion-title>
       </ion-navbar>
-    
+          
     </ion-header>
     
     <ion-content padding>
@@ -28,5 +28,11 @@
       </ion-item>
     
     <button ion-button block (click)="addAluno(novoAluno)">Adicionar Aluno</button>
-    
+
+
+    <ion-row>
+            <ion-col>
+                <button ion-button class="buttonEsquerdo" (click)="cancelar()" outline round block small color="light"> <b>VOLTAR</b> </button>
+            </ion-col>
+    </ion-row>
     </ion-content>

@@ -4,6 +4,7 @@ import { FirebaseListObservable, AngularFireDatabase } from "angularfire2/databa
 import { Evento } from "../../models/evento.models";
 import { EventosEditarPage } from "../eventos-editar/eventos-editar";
 import { EventosPage } from "../eventos/eventos";
+import { HomePage } from '../home/home';
 
 @IonicPage()
 @Component({
@@ -51,5 +52,9 @@ export class EventosListaPage {
     eventosPage() {
       this.navCtrl.push(EventosPage);
     }
-  
+    
+    cancelar(){
+      this.navCtrl.push(HomePage);
+    }
+
   }

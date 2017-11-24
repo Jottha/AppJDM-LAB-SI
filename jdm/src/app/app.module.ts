@@ -1,5 +1,3 @@
-import { AuthService } from './../providers/auth-service';
-
 
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -30,15 +28,16 @@ import { SobrePage } from "../pages/sobre/sobre";
 import { LocalizacaoPage } from "../pages/localizacao/localizacao";
 import { LoginPage } from '../pages/login/login';
 
+
 export const firebaseConfig =
-  {
-    apiKey: "AIzaSyA89oAAa-vXPL1Ick_PNHPYthqwNmCQ784",
-    authDomain: "cuide-se-bem-8ff65.firebaseapp.com",
-    databaseURL: "https://cuide-se-bem-8ff65.firebaseio.com",
-    projectId: "cuide-se-bem-8ff65",
-    storageBucket: "cuide-se-bem-8ff65.appspot.com",
-    messagingSenderId: "1087957543161"
-  }
+{
+  apiKey: "AIzaSyDjRP9KOtydhxhSDIJTKfcTVi8rv1YK_c8",
+  authDomain: "appjdm-lab-si-2242b.firebaseapp.com",
+  databaseURL: "https://appjdm-lab-si-2242b.firebaseio.com",
+  projectId: "appjdm-lab-si-2242b",
+  storageBucket: "appjdm-lab-si-2242b.appspot.com",
+  messagingSenderId: "609842297942"
+}
 
 @NgModule({
   declarations: [
@@ -91,13 +90,12 @@ export const firebaseConfig =
     ProfessoresListaPage,
     SobrePage,
     LocalizacaoPage,
-    LoginPage    
+    LoginPage 
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: ErrorHandler, useClass: IonicErrorHandler },
-    AuthService
+    { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 
 })

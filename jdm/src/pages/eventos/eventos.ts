@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 import 'rxjs/add/operator/map';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { Evento } from "../../models/evento.models";
 import { EventosEditarPage } from "../eventos-editar/eventos-editar";
+import { HomePage } from '../home/home';
 
 
 @IonicPage()
@@ -34,6 +35,10 @@ export class EventosPage {
 
     editar(){
       this.navCtrl.push(EventosEditarPage);
+    }
+
+    cancelar(){
+      this.navCtrl.push(HomePage);
     }
 
 }

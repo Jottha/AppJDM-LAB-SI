@@ -1,12 +1,6 @@
-import { AuthService } from '../../providers/auth-service';
-
 import { Component } from '@angular/core';
-import { NavController, NavParams, IonicPage } from 'ionic-angular';
-import { AlunosPage } from "../alunos/alunos";
-import { EventosPage } from "../eventos/eventos";
-import { NoticiasPage } from "../noticias/noticias";
-import { ProfessoresPage } from "../professores/professores";
-import { ImagensPage } from "../imagens/imagens";
+import { NavController, IonicPage } from 'ionic-angular';
+
 import { SobrePage } from "../sobre/sobre";
 import { LocalizacaoPage } from "../localizacao/localizacao";
 import { AlunosListaPage } from "../alunos-lista/alunos-lista";
@@ -22,19 +16,10 @@ import { EventosListaPage } from "../eventos-lista/eventos-lista";
 })
 export class HomePage {
 
-  username = '';
-  email = '';
-  constructor(private navCtrl: NavController, private auth: AuthService) {
-    let info = this.auth.getUserInfo();
-    this.username = info['name'];
-    this.email = info['email'];
+  constructor(private navCtrl: NavController) {
+    
   }
- 
-  public logout() {
-    this.auth.logout().subscribe(succ => {
-      this.navCtrl.setRoot('LoginPage')
-    });
-  }
+
 
   public alunos() {
     this.navCtrl.push(AlunosListaPage);

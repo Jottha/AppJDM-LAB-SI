@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 import { Aluno } from "../../models/aluno.models";
 import { FirebaseListObservable, AngularFireDatabase } from "angularfire2/database";
 import { AlunosEditarPage } from "../alunos-editar/alunos-editar";
+import { HomePage } from '../home/home';
 
 @IonicPage()
 @Component({
@@ -33,5 +34,8 @@ export class AlunosPage {
       editar(){
         this.navCtrl.push(AlunosEditarPage);
       }
-  
+
+      cancelar(){
+        this.navCtrl.push(HomePage);
+      }
   }

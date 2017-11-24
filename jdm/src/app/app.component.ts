@@ -3,12 +3,11 @@ import { Platform, Nav } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
-import { JdmPage } from '../pages/jdm/jdm';
+
 
 import { AlunosListaPage } from '../pages/alunos-lista/alunos-lista';
 import { ProfessoresListaPage } from '../pages/professores-lista/professores-lista';
 import { EventosListaPage } from '../pages/eventos-lista/eventos-lista';
-import { FuncionariosPage } from '../pages/funcionarios/funcionarios';
 import { NoticiasListaPage } from '../pages/noticias-lista/noticias-lista';
 import { ImagensListaPage } from '../pages/imagens-lista/imagens-lista';
 import { SobrePage } from '../pages/sobre/sobre';
@@ -22,18 +21,19 @@ import { LoginPage } from '../pages/login/login';
 export class MyApp {
   
   @ViewChild('NAV') nav: Nav;
-  public rootPage: LoginPage;
+  public rootPage:any;
   public pages: Array<{title: string, component: any, icon: string}>;
 
+  
+
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
-    
+  
+    this.rootPage = LoginPage;
   this.pages = [
       
       { title: 'Home', component: HomePage, icon: 'home' },
 
-      { title: 'Sobre', component: SobrePage, icon: 'people'},
-
-      { title: 'Jdm', component: JdmPage , icon: 'bulb'},
+      { title: 'Sobre', component: SobrePage, icon: 'school'},
 
       { title: 'Alunos', component: AlunosListaPage, icon: 'people'},
 
@@ -41,13 +41,11 @@ export class MyApp {
 
       { title: 'Eventos', component: EventosListaPage, icon: 'calendar' },
 
-      { title: 'Funcionarios', component: FuncionariosPage, icon: 'people'},
+      { title: 'Imagens', component: ImagensListaPage, icon: 'images'},
 
-      { title: 'Imagens', component: ImagensListaPage, icon: 'people'},
+      { title: 'Noticias', component: NoticiasListaPage, icon: 'images'},
 
-      { title: 'Noticias', component: NoticiasListaPage, icon: 'people'},
-
-      { title: 'Localizacao', component: LocalizacaoPage, icon: 'people'}
+      { title: 'Localizacao', component: LocalizacaoPage, icon: 'navigate'}
       
     ];
     
